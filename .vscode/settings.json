@@ -1,7 +1,10 @@
 {
-    "java.project.sourcePaths": ["src", "java"],
+    "java.project.sourcePaths": [
+        "src/java"
+    ],
     "java.project.outputPath": "build",
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
-    ]
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
 }
