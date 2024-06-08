@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "KMP",
+            "request": "launch",
+            "mainClass": "problem.KMP",
+            "projectName": "leetcode_7b003eaa"
+        },
+        {
+            "type": "java",
+            "name": "Sort2",
+            "request": "launch",
+            "mainClass": "problem.Sort2",
+            "projectName": "leetcode_7b003eaa"
+        },
+        {
+            "type": "java",
+            "name": "Sort",
+            "request": "launch",
+            "mainClass": "problem.Sort",
+            "projectName": "leetcode_7b003eaa"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}",
