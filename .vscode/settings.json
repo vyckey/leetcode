@@ -6,5 +6,8 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "java.test.config": {
+        "vmArgs": ["--add-opens=java.base/java.util=ALL-UNNAMED"]
+    }
 }

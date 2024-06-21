@@ -1,7 +1,22 @@
 package util;
 
+import java.util.Random;
+
 public class ArrayUtil {
     private ArrayUtil() {
+    }
+
+    public static int[] randomIntArray(int length, int fromIncluded, int toExclusive) {
+        if (length < 0) {
+            throw new IllegalArgumentException("length cannot be negtive");
+        }
+        
+        Random random = new Random();
+        int[] arr = new int[length];
+        for (int i = 0; i < length; i++) {
+            arr[i] = random.nextInt(fromIncluded, toExclusive);
+        }
+        return arr;
     }
 
     public static int[][] partition(int size, int... ints) {
