@@ -1,11 +1,10 @@
 package problem;
 
-import java.util.Random;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import util.ArrayUtil;
+import util.RandomUtil;
 
 public class P73SetMatrixZeroes {
 
@@ -42,15 +41,14 @@ public class P73SetMatrixZeroes {
     @Test
     public void test2() {
         final int testCaseCnt = 10;
-        Random rand = new Random();
         for (int c = 0; c < testCaseCnt; c++) {
             // create a random matrix
-            int m = rand.nextInt(1, 201), n = rand.nextInt(1, 201);
+            int m = RandomUtil.nextInt(1, 201), n = RandomUtil.nextInt(1, 201);
             int[][] matrix = new int[m][n];
             for (int i = 0; i < m; i++) {
                 for (int j = 0; j < n; j++) {
-                    if (rand.nextBoolean()) {
-                        matrix[i][j] = rand.nextInt();
+                    if (RandomUtil.nextBoolean()) {
+                        matrix[i][j] = RandomUtil.nextInt();
                     }
                 }
             }

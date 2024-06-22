@@ -5,10 +5,11 @@ import java.util.Comparator;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
-import java.util.Random;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import util.RandomUtil;
 
 public class P239SlidingWindowMaximum {
     @Test
@@ -20,14 +21,13 @@ public class P239SlidingWindowMaximum {
 
     @Test
     public void test2() {
-        Random random = new Random();
         for (int c = 0; c < 100; c++) {
-            int[] nums = new int[random.nextInt(1, 10^5)];
+            int[] nums = new int[RandomUtil.nextInt(1, 10^5)];
             for (int i = 0; i < nums.length; ++i) {
-                nums[i] = random.nextInt(-10^4, 10^4);
+                nums[i] = RandomUtil.nextInt(-10^4, 10^4);
             }
             for (int i = 0; i < 10; i++) {
-                int k = (nums.length > 2) ? random.nextInt(1, nums.length - 1) : 1;
+                int k = (nums.length > 2) ? RandomUtil.nextInt(1, nums.length - 1) : 1;
                 System.out.println(Arrays.toString(nums));
                 int[] maximums1 = maxSlidingWindowNormal(nums, k);
                 int[] maximums2 = maxSlidingWindow(nums, k);

@@ -1,7 +1,5 @@
 package util;
 
-import java.util.Random;
-
 public class ArrayUtil {
     private ArrayUtil() {
     }
@@ -11,10 +9,9 @@ public class ArrayUtil {
             throw new IllegalArgumentException("length cannot be negtive");
         }
         
-        Random random = new Random();
         int[] arr = new int[length];
         for (int i = 0; i < length; i++) {
-            arr[i] = random.nextInt(fromIncluded, toExclusive);
+            arr[i] = RandomUtil.nextInt(fromIncluded, toExclusive);
         }
         return arr;
     }

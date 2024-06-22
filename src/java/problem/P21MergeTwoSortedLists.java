@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import common.ListNode;
 import util.ArrayUtil;
+import util.RandomUtil;
 
 public class P21MergeTwoSortedLists {
     @Test
@@ -21,10 +21,9 @@ public class P21MergeTwoSortedLists {
 
     @Test
     public void test2() {
-        Random random = new Random();
         for (int i = 0; i < 100; i++) {
-            int[] arr1 = ArrayUtil.randomIntArray(random.nextInt(0, 50), -100, 100);
-            int[] arr2 = ArrayUtil.randomIntArray(random.nextInt(0, 50), -100, 100);
+            int[] arr1 = ArrayUtil.randomIntArray(RandomUtil.nextInt(0, 50), -100, 100);
+            int[] arr2 = ArrayUtil.randomIntArray(RandomUtil.nextInt(0, 50), -100, 100);
             Arrays.sort(arr1);
             Arrays.sort(arr2);
 

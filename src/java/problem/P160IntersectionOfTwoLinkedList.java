@@ -1,11 +1,10 @@
 package problem;
 
-import java.util.Random;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 import common.ListNode;
+import util.RandomUtil;
 
 public class P160IntersectionOfTwoLinkedList {
     @Test
@@ -19,18 +18,17 @@ public class P160IntersectionOfTwoLinkedList {
 
     @Test
     public void test2() {
-        Random random = new Random();
         for (int i = 0; i < 100; i++) {
-            int[] nums = new int[random.nextInt(2, 3 * 10 ^ 4)];
+            int[] nums = new int[RandomUtil.nextInt(2, 3 * 10 ^ 4)];
             for (int j = 0; j < nums.length; j++) {
-                nums[j] = random.nextInt();
+                nums[j] = RandomUtil.nextInt();
             }
             ListNode headB = ListNode.buildList(nums);
-            int forward = random.nextInt(0, nums.length - 1);
+            int forward = RandomUtil.nextInt(0, nums.length - 1);
             ListNode headA = headB.forward(forward);
             ListNode intersection;
             if (forward > 0) {
-                intersection = headA.forward(random.nextInt(0, nums.length - forward - 1));
+                intersection = headA.forward(RandomUtil.nextInt(0, nums.length - forward - 1));
                 headB.forward(forward - 1).next = intersection;
             } else {
                 intersection = headA;

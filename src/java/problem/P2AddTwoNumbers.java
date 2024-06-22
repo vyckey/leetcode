@@ -1,12 +1,12 @@
 package problem;
 
 import java.util.Arrays;
-import java.util.Random;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import common.ListNode;
+import util.RandomUtil;
 
 public class P2AddTwoNumbers {
     private static ListNode buildList(int val) {
@@ -32,9 +32,8 @@ public class P2AddTwoNumbers {
 
     @Test
     public void test2() {
-        Random random = new Random();
         for (int i = 0; i < 100; i++) {
-            int i1 = random.nextInt(0, 10^5), i2 = random.nextInt(0, 10^5);
+            int i1 = RandomUtil.nextInt(0, 100000), i2 = RandomUtil.nextInt(0, 100000);
             int s = i1 + i2;
             Assert.assertEquals(buildList(s).values(), addTwoNumbers(buildList(i1), buildList(i2)).values());
         }

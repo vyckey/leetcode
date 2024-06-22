@@ -1,22 +1,21 @@
 package problem;
 
 import java.util.Arrays;
-import java.util.Random;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import util.ArrayUtil;
+import util.RandomUtil;
 
 public class P74SearchA2DMatrix {
     @Test
     public void test() {
-        Random random = new Random();
         for (int c = 0; c < 100; c++) {
-            int size = random.nextInt(1, 10000);
+            int size = RandomUtil.nextInt(1, 10000);
             int[] arr = ArrayUtil.randomIntArray(size, -10^4, 10^4);
             Arrays.sort(arr);
-            int n = random.nextInt(1, size);
+            int n = RandomUtil.nextInt(1, size);
             int m = (size + n - 1) / n;
 
             int[][] matrix = new int[m][n];
@@ -30,8 +29,8 @@ public class P74SearchA2DMatrix {
                 }
             }
 
-            if (random.nextBoolean()) {
-                int target = arr[random.nextInt(0, size)];
+            if (RandomUtil.nextBoolean()) {
+                int target = arr[RandomUtil.nextInt(0, size)];
                 Assert.assertTrue(searchMatrix(matrix, target));
             } else {
                 int target = arr[arr.length - 1] + 1;

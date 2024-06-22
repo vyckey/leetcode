@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Random;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import util.RandomUtil;
 
 class SlowMedianFinder {
     private final List<Integer> nums = new ArrayList<>();
@@ -49,14 +50,13 @@ public class P295FindMedianFromDataStream {
     public void test() {
         SlowMedianFinder medianFinder1 = new SlowMedianFinder();
         MedianFinder medianFinder2 = new MedianFinder();
-        final Random random = new Random();
 
-        final int opcnt = random.nextInt(1000, 100000);
+        final int opcnt = RandomUtil.nextInt(1000, 100000);
         for (int i = 0; i < opcnt; i++) {
-            if (random.nextBoolean() && i > 0) {
+            if (RandomUtil.nextBoolean() && i > 0) {
                 Assert.assertEquals(medianFinder1.findMedian(), medianFinder2.findMedian(),  10^-5);
             } else {
-                int num = random.nextInt(-10^5, 10^5);
+                int num = RandomUtil.nextInt(-10^5, 10^5);
                 System.out.print(num + ",");
                 medianFinder1.addNum(num);
                 medianFinder2.addNum(num);

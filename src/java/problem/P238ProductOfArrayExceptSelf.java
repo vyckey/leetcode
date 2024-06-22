@@ -1,20 +1,19 @@
 package problem;
 
-import java.util.Random;
-
 import org.junit.Assert;
 import org.junit.Test;
+
+import util.RandomUtil;
 
 public class P238ProductOfArrayExceptSelf {
 
     @Test
     public void test() {
-        Random random = new Random();
         final int testCaseSize = 100;
         for (int i = 0; i < testCaseSize; i++) {
-            int[] nums = new int[random.nextInt(2, 10^5)];
+            int[] nums = new int[RandomUtil.nextInt(2, 10^5)];
             for (int j = 0; j < nums.length; j++) {
-                nums[j] = random.nextInt(-30, 31);
+                nums[j] = RandomUtil.nextInt(-30, 31);
             }
             
             int[] expectProducts = productExceptSelfSimple(nums);

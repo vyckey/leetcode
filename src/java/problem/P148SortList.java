@@ -2,23 +2,22 @@ package problem;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import common.ListNode;
+import util.RandomUtil;
 
 public class P148SortList {
     @Test
     public void test() {
         final int testCaseSize = 100;
-        Random random = new Random();
         for (int j = 0; j < testCaseSize; j++) {
-            int[] nums = new int[random.nextInt(1, 100)];
+            int[] nums = new int[RandomUtil.nextInt(1, 100)];
             for (int i = 0; i < nums.length; i++) {
-                nums[i] = random.nextInt(0, 200);
+                nums[i] = RandomUtil.nextInt(0, 200);
             }
             ListNode list = ListNode.buildList(nums);
 

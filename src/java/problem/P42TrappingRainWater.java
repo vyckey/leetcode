@@ -2,12 +2,12 @@ package problem;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Random;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import util.ArrayUtil;
+import util.RandomUtil;
 
 public class P42TrappingRainWater {
     @Test
@@ -19,9 +19,8 @@ public class P42TrappingRainWater {
 
     @Test
     public void test2() {
-        Random random = new Random();
         for (int i = 0; i < 100; i++) {
-            int len = random.nextInt(1, 2 * 10^4);
+            int len = RandomUtil.nextInt(1, 2 * 10^4);
             int[] height = ArrayUtil.randomIntArray(len, 0, 10^5);
 
             int water = trap(height);
