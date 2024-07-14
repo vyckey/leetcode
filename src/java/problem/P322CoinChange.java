@@ -1,5 +1,9 @@
 package problem;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 import util.ArrayUtil;
@@ -9,6 +13,11 @@ public class P322CoinChange {
     @Test
     public void test() {
         SlowSolution solution1 = new SlowSolution();
+        Assert.assertEquals(0, solution1.coinChange(new int[]{1}, 0));
+        Assert.assertEquals(-1, solution1.coinChange(new int[]{2}, 3));
+        Assert.assertEquals(3, solution1.coinChange(new int[]{1,2,5}, 11));
+        Assert.assertEquals(20, solution1.coinChange(new int[]{186,419,83,408}, 6249));
+
         for (int i = 0; i < 100; i++) {
             int amount = RandomUtil.nextInt(1, 10000);
             int size = RandomUtil.nextInt(1, 13);
@@ -18,37 +27,34 @@ public class P322CoinChange {
         }
     }
     
-
     private static class SlowSolution {
         /**
-         * O(n^2)时间复杂度的解决方案
+         * 动态规划
+         * 缓存minCoins[amount]
          */
         public int coinChange(int[] coins, int amount) {
-            return minCoinChange(coins, amount, 0);
+            Map<Integer, Integer> minCoins = new HashMap<>();
+            minCoins.put(0, 0);
+            return minCoinChange(coins, minCoins, amount);
         }
-    
-        private int minCoinChange(int[] coins, int amount, int start) {
-            if (amount == 0) {
-                return 0;
+
+        private int minCoinChange(int[] coins, Map<Integer, Integer> minCoins, int amount) {
+            if (minCoins.containsKey(amount)) {
+                return minCoins.get(amount);
             }
-            while (start < coins.length && coins[start] > amount) {
-                start++;
-            }
-            if (start >= coins.length) {
-                return -1;
-            }
-    
-            int minCoins = -1;
-            int coin = coins[start], maxCoins = amount / coin;
-            for (int c = maxCoins; c >= 0; c--) {
-                int ret = minCoinChange(coins, amount - c * coin, start + 1);
-                if (ret >= 0) {
-                    int count = c + ret;
-                    minCoins = minCoins < 0 ? count : Math.min(minCoins, count);
+            int min = -1;
+            for (int c : coins) {
+                if (amount - c < 0) {
+                    continue;
+                }
+                int res = minCoinChange(coins, minCoins, amount - c);
+                if (res >= 0) {
+                    ++res;
+                    min = (min < 0) ? res : Math.min(min, res);
                 }
             }
-            return minCoins;
+            minCoins.put(amount, min);
+            return min;
         }
     }
-    
 }

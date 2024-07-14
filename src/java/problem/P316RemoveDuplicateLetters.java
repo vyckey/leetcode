@@ -1,7 +1,5 @@
 package problem;
 
-import static java.lang.StringTemplate.STR;
-
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
